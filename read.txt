@@ -1,0 +1,20 @@
+run.py 入口文件
+
+project 项目目录
+	demo 初始化项目
+		config 项目配置目录
+		index 目录
+
+log 日志目录
+	demo_log 目录
+
+	
+core 核心目录（测试框架）
+	models（自己封装的方法）
+	package（第三方库）
+
+
+
+
+
+
