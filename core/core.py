@@ -6,23 +6,22 @@ from core.models.mytest import Mytest
 
 
 class Core(Tool,Install,Unittest):
-	def __init__(self):
-		self.__checkInstallFun()
+	def _start(self):
+		self.__check_install_fun()
 
 	#私有方法 第一步先检查项目初始化
-	def __checkInstallFun(self):
+	def __check_install_fun(self):
 		#调用checkInstall函数 检查是否初始化
-		isInstall = self.checkInstall()
-		if isInstall == True:
+		if self.check_install():
 			#print('执行项目Test')
-			self.__unittestInit()
+			self.__unittest_init()
 		else:
 			print('初始化完成')
 			
 	#执行测试
-	def __unittestInit(self):
+	def __unittest_init(self):
 		print('执行测试')
-		self.testRun()
+		self.test_run()
 
 
 class Tool(Tool):

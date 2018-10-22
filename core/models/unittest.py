@@ -1,4 +1,3 @@
-# coding=utf-8
 
 import os
 #导入 unittest 模块
@@ -10,26 +9,25 @@ from core.models.tool import Tool
 
 
 #定义Unittest类
-class Unittest():
+class Unittest:
 
-
-	def testRun(self):
-		print('unittest run')
+	@staticmethod
+	def test_run():
 
 		project_path = os.path.join(os.getcwd(),'project')
 
 		#获取根目录下config.ini
-		config = Tool().readBaseConfig()
+		config = Tool().read_base_config()
 
-		projectName = config.get("Config","main")
+		project_name = config.get("Config","main")
 
 		#开始时间
 		start_time = time.time()
 
 		#项目路径
-		projectPath = project_path+'/{}/'.format(projectName)
+		project_path = project_path+'/{}/'.format(project_name)
 
-		discover = unittest.defaultTestLoader.discover(projectPath,pattern='*_st.py',top_level_dir=None)
+		discover = unittest.defaultTestLoader.discover(project_path,pattern='*_st.py',top_level_dir=None)
 
 		# all_case_fun = []
 		# for i in str(discover).split('testMethod='):

@@ -7,8 +7,11 @@ class TestLogin_sales(Test,Tool):
     # 登录
     def test_login_sales(self):
         # 正常登录
-        baseData = self.getYaml('sales','login')
-        print(baseData)
+        config_data = self.get_yaml('sales','login')
+
+        r = self.request('https://www.baidu.com/','get')
+        print(r.status_code)
+
         self.result = '1'
         self.assertEqual(1, 1)
 

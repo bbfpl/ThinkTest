@@ -2,29 +2,22 @@
 import os
 from core.models.tool import Tool
 #安装类
-class Install():
-	def checkInstall(self):
-		#默认初始化为Fasle
-		_isInstall = False
-		#检查config
-		_isInstall = self.__checkConfig()
-		#检查project
-		_isInstall = self.__checkProject()
+class Install:
+	def check_install(self):
 		#返回最后值
-		return _isInstall
+		return self.__check_config() is True and self.__check_project() is True
 
-	def __checkConfig(self):
+	def __check_config(self):
 		#默认_isInstall 为 False
 		_isInstall = False
 
-		# #获取根目录下config.ini
+		# 获取根目录下config.ini
 		config_path = os.path.join(os.getcwd(),'config.ini')
 
-
-		config = Tool().readBaseConfig()
+		config = Tool().read_base_config()
 
 		#判断config是否存在 不存在就创建
-		if os.path.exists(config_path) == False:
+		if os.path.exists(config_path) is False:
 			config.add_section("Config")
 			config.set("Config","project","[Demo]")
 			config.set("Config","main","Demo")
@@ -38,16 +31,16 @@ class Install():
 
 		return _isInstall
 
-	def __checkProject(self):
+	def __check_project(self):
 		_isInstall = False
 		#获取project目录
 		project_path = os.path.join(os.getcwd(),'project')
 		#获取project目录下 Demo
-		project_Demo_path = project_path + '/Demo'
+		project_demo_path = project_path + '/Demo'
 
-		if os.path.exists(project_path) == False:
+		if os.path.exists(project_path) is False:
 			os.makedirs(project_path)
-			os.makedirs(project_Demo_path)
+			os.makedirs(project_demo_path)
 			print('创建project目录成功')
 		else:
 			_isInstall = True
