@@ -3,11 +3,17 @@ from core.models.tool import Tool
 from core.models.install import Install
 from core.models.unittest import Unittest
 from core.models.mytest import Mytest
-
+from core.models.maketest.maketest import MakeTest
 
 class Core(Tool,Install,Unittest):
+	# 测试开始
 	def _start(self):
 		self.__check_install_fun()
+
+	# 生成测试用例
+	@staticmethod
+	def _makestart():
+		MakeTest().start()
 
 	#私有方法 第一步先检查项目初始化
 	def __check_install_fun(self):
@@ -30,4 +36,5 @@ class Tool(Tool):
 
 class Test(Mytest):
 	pass
-		
+
+
