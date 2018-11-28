@@ -14,7 +14,7 @@ class Unittest:
 	@staticmethod
 	def test_run():
 
-		project_path = os.path.join(os.getcwd(),'project')
+		project_path = Tool().base_dir + '/project'
 
 		#获取根目录下config.ini
 		config = Tool().read_base_config()
