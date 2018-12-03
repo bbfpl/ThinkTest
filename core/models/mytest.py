@@ -19,3 +19,4 @@ class Mytest(unittest.TestCase):
 
     def tearDown(self):
         print("用例执行结束。。。")
+        # self.result

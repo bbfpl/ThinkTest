@@ -29,7 +29,19 @@ class Xhr:
         #
         # 这里可以做个拦截 
         #
+        r_data={
+            'status':'',
+            'data':{},
+            'time':0,
+            'msg':'' # 错误提示
+        }
         if r.status_code is 200:
-            return r
+            r_data['data'] = r.json()
+            r_data['status'] = 'success'
+            r_data['time'] = r.time
         else:
             print('request error:' + r.status_code)
+            r_data['status'] = 'error'
+            r_data['msg'] = r.status_code
+
+        return r_data
