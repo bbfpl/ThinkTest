@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/core/models/mytest.py" line="21" mnemonic="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8a617a09-2148-4a08-9130-58dea22a1ad4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ini" afterPath="$PROJECT_DIR$/config.ini" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/models/report/test_demo.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/models/install.py" afterPath="$PROJECT_DIR$/core/models/install.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/models/mytest.py" afterPath="$PROJECT_DIR$/core/models/mytest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/models/tool.py" afterPath="$PROJECT_DIR$/core/models/tool.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/models/unittest.py" afterPath="$PROJECT_DIR$/core/models/unittest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/models/xhr.py" afterPath="$PROJECT_DIR$/core/models/xhr.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/Demo/config.yaml" afterPath="$PROJECT_DIR$/project/Demo/config.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/Demo/sales/login_st.py" afterPath="$PROJECT_DIR$/project/Demo/sales/login_st.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,51 +23,77 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Test$Unittests_in_login_st_py.coverage" NAME="Unittests in login_st.py Coverage Results" MODIFIED="1545976369024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/Demo/sales" />
     <SUITE FILE_PATH="coverage/Test$Unittests_for_login_st_TestLogin_sales_test_login_sales.coverage" NAME="Unittests for login_st.TestLogin_sales.test_login_sales Coverage Results" MODIFIED="1543414481946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/Demo/sales" />
-    <SUITE FILE_PATH="coverage/Test$Unittests_for_login_st_TestLoginSales.coverage" NAME="Unittests for login_st.TestLoginSales Coverage Results" MODIFIED="1543415809625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/Demo/sales" />
+    <SUITE FILE_PATH="coverage/Test$Unittests_for_login_st_TestLoginSales.coverage" NAME="Unittests for login_st.TestLoginSales Coverage Results" MODIFIED="1545974511832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/Demo/sales" />
     <SUITE FILE_PATH="coverage/Test$make.coverage" NAME="make Coverage Results" MODIFIED="1543415682817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Test$Unittests_for_login_st_TestLoginSales_test_login_sales.coverage" NAME="Unittests for login_st.TestLoginSales.test_login_sales Coverage Results" MODIFIED="1543416321387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/Demo/sales" />
+    <SUITE FILE_PATH="coverage/Test$Unittests_for_login_st_TestLoginSales_test_account_login.coverage" NAME="Unittests for login_st.TestLoginSales.test_account_login Coverage Results" MODIFIED="1545977523158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/Demo/sales" />
+    <SUITE FILE_PATH="coverage/Test$Unittests_for_mytest_Mytest.coverage" NAME="Unittests for mytest.Mytest Coverage Results" MODIFIED="1545914127587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core/models" />
+    <SUITE FILE_PATH="coverage/Test$runMethod.coverage" NAME="runMethod Coverage Results" MODIFIED="1544003643153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Test$Unittests_for_login_st_TestLoginSales_test_login_sales.coverage" NAME="Unittests for login_st.TestLoginSales.test_login_sales Coverage Results" MODIFIED="1545913925387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/Demo/sales" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="0">
+              <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="make.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/make.py">
+      <file leaf-file-name="core.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="maketest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/models/maketest/maketest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1056">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="308">
+              <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#15#48#0" expanded="true" />
+                <element signature="e#257#631#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mytest.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tool.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/models/tool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="e#15#24#0" expanded="true" />
+                <element signature="e#256#338#0" expanded="false" />
+                <element signature="e#396#529#0" expanded="false" />
+                <element signature="e#583#809#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mytest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/models/mytest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="286">
+              <caret line="39" column="35" lean-forward="true" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#184#688#0" expanded="false" />
+                <element signature="e#735#993#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_st.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/Demo/sales/login_st.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+              <folding>
+                <element signature="e#15#30#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,23 +101,32 @@
       <file leaf-file-name="xhr.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/models/xhr.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="22">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/Demo/config.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
               <folding>
-                <element signature="e#66#103#0" expanded="false" />
+                <element signature="e#121#497#1" expanded="false" />
+                <element signature="e#153#497#1" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_st.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/Demo/sales/login_st.py">
+      <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-              <folding>
-                <element signature="e#15#30#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,6 +139,7 @@
       <find>name</find>
       <find>gbk</find>
       <find>__open_file</find>
+      <find>read_base_config</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,10 +150,12 @@
       <list>
         <option value="$PROJECT_DIR$/config.ini" />
         <option value="$PROJECT_DIR$/core/models/maketest/maketest.py" />
+        <option value="$PROJECT_DIR$/runMethod.py" />
+        <option value="$PROJECT_DIR$/project/Demo/config.yaml" />
+        <option value="$PROJECT_DIR$/core/models/tool.py" />
+        <option value="$PROJECT_DIR$/project/Demo/sales/login_st.py" />
         <option value="$PROJECT_DIR$/core/models/xhr.py" />
         <option value="$PROJECT_DIR$/core/models/mytest.py" />
-        <option value="$PROJECT_DIR$/project/Demo/config.yaml" />
-        <option value="$PROJECT_DIR$/project/Demo/sales/login_st.py" />
       </list>
     </option>
   </component>
@@ -118,9 +165,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="180" />
-    <option name="y" value="248" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="230" />
+    <option name="y" value="132" />
     <option name="width" value="831" />
     <option name="height" value="721" />
   </component>
@@ -139,8 +186,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,20 +193,17 @@
               <item name="Test" type="b2602c69:ProjectViewProjectNode" />
               <item name="Test" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Test" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pyrequest_master" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
@@ -176,7 +218,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for login_st.TestLoginSales.test_login_sales">
+  <component name="RunManager" selected="Python tests.Unittests for login_st.TestLoginSales.test_account_login">
     <configuration name="Unittests for login_st.TestLoginSales" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -190,6 +232,21 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;login_st.TestLoginSales&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for login_st.TestLoginSales.test_account_login" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/Demo/sales" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;login_st.TestLoginSales.test_account_login&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <configuration name="Unittests for login_st.TestLoginSales.test_login_sales" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -207,7 +264,22 @@
       <option name="_new_target" value="&quot;login_st.TestLoginSales.test_login_sales&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests for login_st.TestLogin_sales.test_login_sales" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for mytest.Mytest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;mytest.Mytest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests in login_st.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -219,39 +291,23 @@
       <module name="Test" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;login_st.TestLogin_sales.test_login_sales&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/project/Demo/sales/login_st.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration name="make" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Test" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/make.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.make" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLogin_sales.test_login_sales" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales.test_login_sales" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales.test_login_sales" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for mytest.Mytest" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in login_st.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales.test_account_login" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales.test_login_sales" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales" />
-        <item index="2" class="java.lang.String" itemvalue="Python.make" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLogin_sales.test_login_sales" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales.test_account_login" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in login_st.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for mytest.Mytest" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for login_st.TestLoginSales.test_login_sales" />
       </list>
     </recent_temporary>
   </component>
@@ -269,48 +325,52 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_login_st_TestLoginSales - 2018.11.28 at 22h 36m 50s.xml">
-      <configuration name="Unittests for login_st.TestLoginSales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 13h 25m 53s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLoginSales_test_login_sales - 2018.11.28 at 22h 25m 32s.xml">
-      <configuration name="Unittests for login_st.TestLoginSales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 13h 27m 00s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLoginSales_test_login_sales - 2018.11.28 at 22h 35m 37s.xml">
-      <configuration name="Unittests for login_st.TestLoginSales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 13h 27m 31s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLoginSales_test_login_sales - 2018.11.28 at 22h 42m 23s.xml">
-      <configuration name="Unittests for login_st.TestLoginSales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 13h 27m 55s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLoginSales_test_login_sales - 2018.11.28 at 22h 43m 23s.xml">
-      <configuration name="Unittests for login_st.TestLoginSales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 13h 28m 32s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLoginSales_test_login_sales - 2018.11.28 at 22h 45m 23s.xml">
-      <configuration name="Unittests for login_st.TestLoginSales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 13h 29m 00s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLogin_sales_test_login_sales - 2018.11.28 at 22h 12m 20s.xml">
-      <configuration name="Unittests for login_st.TestLogin_sales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 14h 11m 46s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLogin_sales_test_login_sales - 2018.11.28 at 22h 13m 41s.xml">
-      <configuration name="Unittests for login_st.TestLogin_sales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_for_login_st_TestLoginSales_test_account_login - 2018.12.28 at 14h 12m 04s.xml">
+      <configuration name="Unittests for login_st.TestLoginSales.test_account_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_login_st_TestLogin_sales_test_login_sales - 2018.11.28 at 22h 14m 42s.xml">
-      <configuration name="Unittests for login_st.TestLogin_sales.test_login_sales" configurationId="tests" />
+    <history-entry file="Unittests_in_login_st_py - 2018.12.28 at 13h 52m 25s.xml">
+      <configuration name="Unittests in login_st.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_login_st_py - 2018.12.28 at 13h 52m 50s.xml">
+      <configuration name="Unittests in login_st.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="180" y="248" width="831" height="721" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24907975" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51111114" sideWeight="0.10834553" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18121912" sideWeight="0.8916545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31746033" sideWeight="0.4941435" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23968254" sideWeight="0.8916545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -332,58 +392,216 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config.ini">
+    <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        <state relative-caret-position="176">
+          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+        <state relative-caret-position="792">
+          <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding>
-            <element signature="e#15#48#0" expanded="false" />
+            <element signature="e#15#48#0" expanded="true" />
+            <element signature="e#257#631#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Soft/Python3/Lib/site-packages/yaml/constructor.py">
+    <entry file="file://$PROJECT_DIR$/project/Demo/sales/login_st.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2374">
-          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        <state relative-caret-position="22">
+          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
           <folding>
-            <element signature="e#90#110#0" expanded="false" />
+            <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/Demo/config.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#121#497#1" expanded="false" />
+            <element signature="e#153#497#1" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/models/tool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-352">
-          <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="176">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="e#15#24#0" expanded="true" />
+            <element signature="e#256#338#0" expanded="false" />
+            <element signature="e#396#529#0" expanded="false" />
+            <element signature="e#583#809#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/maketest/config_yaml.txt">
+    <entry file="file://$PROJECT_DIR$/core/models/mytest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="550">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#184#688#0" expanded="false" />
+            <element signature="e#735#993#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/maketest/test_code.txt">
+    <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="82" />
+        <state relative-caret-position="176">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="e#15#48#0" expanded="true" />
+            <element signature="e#257#631#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/install.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/xhr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/mytest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#184#688#0" expanded="false" />
+            <element signature="e#735#993#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Soft/Python3/Lib/site-packages/requests/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2266">
+          <caret line="103" column="29" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/Demo/sales/login_st.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding>
+            <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="e#15#48#0" expanded="true" />
+            <element signature="e#257#631#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/install.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/mytest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#184#688#0" expanded="false" />
+            <element signature="e#735#993#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/xhr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/Demo/sales/login_st.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Soft/Python3/Lib/site-packages/requests/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2266">
+          <caret line="103" column="29" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runMethod.py" />
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -392,58 +610,220 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/Demo/config.yaml">
+    <entry file="file://$PROJECT_DIR$/make.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="e#339#495#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/models/maketest/maketest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
+        <state relative-caret-position="1012">
           <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/make.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/models/mytest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="176">
           <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#184#688#0" expanded="false" />
+            <element signature="e#735#993#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/models/xhr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="660">
           <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/Demo/sales/login_st.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
           <folding>
-            <element signature="e#66#103#0" expanded="false" />
+            <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Soft/Python3/Lib/site-packages/yaml/constructor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2374">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/maketest/config_yaml.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/maketest/test_code.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/maketest/maketest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../ForeignTrade/SCRM/sales/A_login_st.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="15" column="60" lean-forward="false" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Soft/Python3/Lib/site-packages/requests/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="859">
+          <caret line="82" column="23" lean-forward="false" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runMethod.py" />
+    <entry file="file://F:/Soft/Python3/Lib/site-packages/requests/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="998">
+          <caret line="103" column="29" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/install.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py" />
+    <entry file="file://$PROJECT_DIR$/make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Soft/Python3/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1191">
+          <caret line="456" column="8" lean-forward="false" selection-start-line="456" selection-start-column="8" selection-end-line="456" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/unittest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#10#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Soft/Python3/Lib/site-packages/yaml/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+          <folding>
+            <element signature="e#15#48#0" expanded="true" />
+            <element signature="e#257#631#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/Demo/config.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding>
+            <element signature="e#121#497#1" expanded="false" />
+            <element signature="e#153#497#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/xhr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#15#24#0" expanded="true" />
+            <element signature="e#256#338#0" expanded="false" />
+            <element signature="e#396#529#0" expanded="false" />
+            <element signature="e#583#809#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/Demo/sales/login_st.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+        <state relative-caret-position="154">
+          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
           <folding>
             <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/mytest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="39" column="35" lean-forward="true" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#184#688#0" expanded="false" />
+            <element signature="e#735#993#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,23 +1,18 @@
 # coding=utf-8
 import unittest
-from core.core import Test,Tool
+from core.core import Test
 
-class TestLoginSales(Test,Tool):
-    base_data = Tool.get_yaml('sales.login')
+class TestLoginSales(Test):
+
     # 登录
-    def test_login_sales(self):
+    def test_account_login(self):
         # 正常登录
-        test_account_login = base_data['funName']['test_account_login']
-
-        data = test_account_login.data
-        data['age'] = 12
-
-        r = self.request('https://www.uihtml.com/admin/api_login'+base_data['url'], type='post', data=data, token=False)
+        r = self.request(self.data['url'], type=self.data['mode'], data=self.data['data'], token=False)
+        # 添加判断等代码
         if r['status'] == 'success':
             r_data = r['data'] # json
 
         self.result = r
-        # self.assertEqual(1, 1)
 
 #运行当前py
 if __name__ == '__main__':

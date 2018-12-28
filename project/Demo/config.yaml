@@ -1,28 +1,25 @@
-#sales模块
-sales:
-  #登录 login.py
-  login:
-    url: /api/login  # 登录
-    name: 登录  # 接口注释
-    className: TestAccountLogin  # 接口类名
-    funName:
-      # 接口方法名
-      test_account_login: {
-        # 请求类型
-        mode: post,
-        # 参数
-        data: {
-          loginName: admin,
-          password: 000000
-        }
-      }
-      # 接口方法名
-      test_account_reg: {
-        # 请求类型
-        mode: post,
-        # 参数
-        data: {
-          loginName: admin,
-          password: 000000
-        }
-      }
+# 项目
+project:
+  # 当前项目配置文件
+  config:
+    # 域名
+    domain: https://www.uihtml.com
+  # 所有用例模块配置
+  models:
+    #sales模块
+    sales:
+      #登录 login.py
+      login:
+        url: /api/login  # 登录
+        name: 登录  # 接口注释
+        className: TestAccountLogin  # 接口类名
+        funName:
+          # 接口方法名
+          test_account_login:
+            url: /admin/api_login
+            # 请求类型
+            mode: post
+            # 参数
+            data:
+              loginName: admin,
+              password: 000000
