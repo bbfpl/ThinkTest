@@ -1,0 +1,20 @@
+# coding=utf-8
+import unittest
+from core import Test
+
+class {{ClassName}}(Test):
+	# {{name}}
+	{% for item in funs %}
+    def {{item.name}}(self):
+	{% if item.data.mode == "post" %}
+		r = self.request(self.data['url'], type=self.data['mode'], data=self.data['data'], token=False)
+	{% else %}
+		r = self.request(self.data['url'], type=self.data['mode'])
+	{% endif %}
+		print(r)
+		self.assertEqual(1, 1)
+	{% endfor %}
+
+# 运行
+if __name__ == '__main__':
+	unittest.main()

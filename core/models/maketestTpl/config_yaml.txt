@@ -1,0 +1,42 @@
+# 项目
+project:
+  # 当前项目配置文件
+  config:
+    # 域名
+    domain: https://www.uihtml.com
+    # 测试报告配置
+    repore:
+      title: 接口自动化测试报告
+      cases:
+        all: 全部
+        success: 成功
+        error: 错误
+        skip: 跳过
+      table:
+        case_id: 用例编号
+        case_name: 用例名称
+        api_url: 接口地址
+        method: 接口方法
+        time: 时间
+        result: 测试结果
+        detailed: 详细信息
+
+  # 所有用例模块配置
+  models:
+    #sales模块
+    sales:
+      # 登录 login.py
+      login:
+        className: TestLoginSales  # 接口类名
+        funName:
+          # 接口方法名
+          test_login_sales:
+            name: 正常登录  # 接口注释
+            url: /api/auth_center/v3/login
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              account: 15000000032
+              password: Li1234567890
+              company_id: 43585

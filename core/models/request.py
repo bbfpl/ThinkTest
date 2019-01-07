@@ -1,6 +1,7 @@
+# coding=utf-8
 import requests
 
-class Xhr:
+class Request:
     def __header(self,token):
         # print('headers')
         return token
@@ -31,18 +32,25 @@ class Xhr:
         # 这里可以做个拦截 
         #
         r_data={
+            'code':0,
             'status':'',
             'data':{},
-            'time':0,
+            'time':0,# 时间
             'msg':'' # 错误提示
         }
 
         if r.status_code is 200:
             r_data['data'] = r.json()
             r_data['status'] = 'success'
-            r_data['time'] = r.time
         else:
             r_data['status'] = 'error'
-            r_data['msg'] = r.status_code
+            r_data['msg'] = r.text
+
+        r_data['time'] = r.elapsed.total_seconds()
+        r_data['code'] = r.status_code
 
         return r_data
+
+
+if __name__ == '__main__':
+    print('测试模块功能')

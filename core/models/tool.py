@@ -1,12 +1,15 @@
 # coding=utf-8
 import os
+import time
+import warnings
 import yaml
-import configparser
-
+from config import Config
 # Tool class
-class Tool(object):
-    # 获取根目录
+class Tool:
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
+    def get_time(self,timestamp):
+        return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(timestamp))
 
     # 判断数组长度是非为0
     @staticmethod
@@ -24,38 +27,34 @@ class Tool(object):
             return True
         else:
             return False
-            
-    def read_base_config(self):
-        #获取根目录下config.ini
-        config_path = os.path.join(self.base_dir,'config.ini')
-        print(self.base_dir)
-        # 读取配置文件
-        config = configparser.ConfigParser()
-        config.read(config_path)
-        return config
+
+    # 获取 project 目录
+    @classmethod
+    def get_project_dir(cls):
+        # 读取项目入口
+        project_name = Config.get_config('main')
+        path = cls.base_dir + '/project/' + project_name
+        return path
 
     # 获取当前项目下yaml配置文件
-    def get_yaml(self,name=''):
-        # 获取config
-        config = self.read_base_config()
+    @classmethod
+    def get_yaml(cls,name=''):
+        # 忽略掉yaml告警
+        warnings.simplefilter("ignore", DeprecationWarning)
 
-        #读取项目入口
-        projectName = config.get("Config","main")
-
-        #每个项目下面有个config.yaml
-        path = self.base_dir + '/project/' + projectName + '/config.yaml'
-
+        # 每个项目下面有个config.yaml
+        config_path = cls.get_project_dir() + '/config.yaml'
         #yaml的读取
-        f = open(path, encoding='utf-8')
+        f = open(config_path, encoding='utf-8')
         data = yaml.load(f)
         f.close()
-
         if name != '':
-            for item in name.split('.'):
-                data = data[item]
-
+            try:
+                for item in name.split('.'):
+                    data = data[item]
+            except Exception as e:
+                data = {}
         return data
-
 
     # 创建目录
     def mkdir(self,path):
@@ -63,22 +62,47 @@ class Tool(object):
         path = path.strip()
         # 去除尾部 \ 符号
         path = path.rstrip("\\")
-     
+
         # 判断路径是否存在
         # 存在     True
         # 不存在   False
         isExists=os.path.exists(path)
-     
+
         # 判断结果
         if not isExists:
             # 如果不存在则创建目录
             # 创建目录操作函数
-            os.makedirs(path) 
-     
+            os.makedirs(path)
+
             print(path+' 创建成功')
             return True
         else:
             # 如果目录存在则不创建，并提示目录已存在
             # print(path+' 目录已存在')
             return False
+
+    # 读取文件
+    def open_file(self, path):
+        file_object = open(path, 'r',encoding='utf-8')
+        try:
+            ftext = file_object.read()
+        finally:
+            file_object.close()
+
+        return ftext
+
+    # 写入文件
+    def write_file(self, path, code):
+        if os.path.exists(path) is False:
+            file = open(path, 'w',encoding='utf-8')
+            file.write(code)
+            file.close()
+
+    # 删除文件
+    def remove_file(self,path):
+        if os.path.exists(path):
+            os.remove(path)
+
+if __name__ == '__main__':
+    print(Tool.get_yaml('project.models.sales'))
 
