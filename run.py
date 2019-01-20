@@ -1,4 +1,9 @@
 # coding=utf-8
+import sys
+sys.path.append("./core")
+sys.path.append("./core/models")
+
 from core import Core
-# 简化 一行代码启动
-Core().run()
+
+if __name__=='__main__':
+	Core().run()

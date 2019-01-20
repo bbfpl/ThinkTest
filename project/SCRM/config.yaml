@@ -14,7 +14,7 @@ project:
       error_field: msg
     # 测试报告配置
     repore:
-      title: 接口自动化测试报告
+      title: SCRM接口自动化测试报告
       cases:
         all: 全部
         success: 成功
@@ -32,9 +32,9 @@ project:
   # 所有用例模块配置
   models:
     #user模块
-    user:
+    user_scrm:
       # 登录 login_st.py
-      login:
+      loginn:
         className: TestUserLogin  # 接口类名
         funName:
           # 接口方法名
@@ -47,26 +47,32 @@ project:
             data:
               name: 15000000000
               password: 123
+          # 接口方法名
+          test_login_get:
+            name: 登录-get测试  # 接口注释
+            url: /api/login
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              name: 15000000000
+              password: 123
+          # 接口方法名
+          test_login_nopsw:
+            name: 登录-密码为空  # 接口注释
+            url: /api/login
+            # 请求类型
+            mode: post
+            # 参数
+            data:
+              name: 15000000000
       # 获取所有用户 users_st.py
       users:
         className: TestUsers  # 接口类名
         funName:
           # 接口方法名
           test_get_users:
-            name: 登录  # 接口注释
+            name: 获取所有用户  # 接口注释
             url: /api/get_users
             # 请求类型
             mode: get
-      # 获取用户 user_st.py
-      user:
-        className: TestUser  # 接口类名
-        funName:
-          # 接口方法名
-          test_get_user:
-            name: 登录  # 接口注释
-            url: /api/get_user
-            # 请求类型
-            mode: get
-            # 参数
-            data:
-              id: 1

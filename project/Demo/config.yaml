@@ -3,10 +3,18 @@ project:
   # 当前项目配置文件
   config:
     # 域名
-    domain: https://www.uihtml.com
+    domain: http://139.196.192.35:39001
+    # 响应处理-可为空 如果为空就不判断响应后的字段
+    response:
+      # 状态字段 一般是code 或者 status
+      status_field: status
+      # 状态字段 正确 值
+      status_success_val: success
+      # 错误提示字段
+      error_field: msg
     # 测试报告配置
     repore:
-      title: 接口自动化测试报告
+      title: DEMO接口自动化测试报告
       cases:
         all: 全部
         success: 成功
@@ -23,54 +31,61 @@ project:
 
   # 所有用例模块配置
   models:
-    #sales模块
-    sales:
-      # 登录 login.py
+    #user模块
+    user:
+      # 登录 login_st.py
       login:
-        className: TestLoginSales  # 接口类名
+        className: TestUserLogin  # 接口类名
         funName:
           # 接口方法名
-          test_login_sales:
-            name: 正常登录  # 接口注释
-            url: /api/auth_center/v3/login 
+          test_login:
+            name: 登录  # 接口注释
+            url: /api/login
+            # 请求类型
+            mode: post
+            # 参数
+            data:
+              name: 15000000000
+              password: 123
+          # 接口方法名
+          test_login_get:
+            name: 登录-get测试  # 接口注释
+            url: /api/login
             # 请求类型
             mode: get
             # 参数
             data:
-              account: 15000000032
-              password: Li1234567890
-              company_id: 43585
-      #获取相关文档 documents.py
-      documents:
-        className: Documents_sales  # 接口类名
+              name: 15000000000
+              password: 123
+          # 接口方法名
+          test_login_nopsw:
+            name: 登录-密码为空  # 接口注释
+            url: /api/login
+            # 请求类型
+            mode: post
+            # 参数
+            data:
+              name: 15000000000
+      # 获取所有用户 users_st.py
+      users:
+        className: TestUsers  # 接口类名
         funName:
           # 接口方法名
-          test_documents_send:
-            name: 类型为客户，来源为发出去  # 接口注释
-            url: /api/scrm/documents
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
             # 请求类型
-            mode: post
-            # 参数
-            data:
-              type: 1
-              source: 0
+            mode: get
+      # 获取用户 user_st.py
+      user:
+        className: TestUser  # 接口类名
+        funName:
           # 接口方法名
-          test_documents_show:
-            name: 类型为客户，来源为收到的  # 接口注释
-            url: /api/scrm/documents
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
             # 请求类型
-            mode: post
+            mode: get
             # 参数
             data:
-              type: 1
-              source: 1
-          # 接口方法名
-          test_documents_show:
-            name: 类型为联系人、来源为发出去  # 接口注释
-            url: /api/scrm/documents
-            # 请求类型
-            mode: post
-            # 参数
-            data:
-              type: 0
-              source: 0
+              id: 1

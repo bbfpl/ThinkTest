@@ -44,11 +44,16 @@ class Test(unittest.TestCase):
         get_test_info = self._getTestInfo()
         # 全局data 用例里可用
         data = Tool.get_yaml(get_test_info['now_data'])
-        # 给url添加域名
-        if 'url' in data.keys():
-            data['url'] = Tool.get_yaml('project.config.domain') + data['url']
-        return data
 
+        if data != '':
+            # 给url添加域名
+            if 'url' in data.keys():
+                data['url'] = Tool.get_yaml('project.config.domain') + data['url']
+            if 'data' not in data:
+                data['data'] = {}
+            return data
+        else:
+            return {}
     # 必须使用@classmethod 装饰器,所有test运行前运行一次
     @classmethod
     def setUpClass(cls):

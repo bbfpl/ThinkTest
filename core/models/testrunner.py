@@ -1,9 +1,10 @@
 # coding=utf-8
 from unittest import suite,TextTestRunner
-import time
+import time,os
 from tool import Tool
 from testloader import TestLoader
 from db import DB
+from globals import g_set
 from config import Config
 from reportHtml import ReporeHtml
 
@@ -86,10 +87,11 @@ class Testrunner:
                     info['url'] = item['data']['url']
                     info['mode'] = item['data']['mode']
                     info['submit_data'] = item['data']['data']
-                    info['code'] = item['result']['code']
+                    info['code'] = item['result']['status_code']
                     info['status'] = item['result']['status']
+                    # 状态类型 正确：success 错误：error 跳过：skipped
                     info['status_type'] = item['result']['status']
-                    info['data'] = item['result']['data']
+                    info['data'] = item['result']['response']
                     info['time'] = item['result']['time']
                     info['msg'] = item['result']['msg']
 
@@ -116,19 +118,33 @@ class Testrunner:
     def __build_report(self,start_time,end_time,case_data):
         ReporeHtml(start_time,end_time,case_data).build()
 
-    def run(self):
+    # 先处理一下db文件
+    def __db_clean(self):
+        DB().remove_db()
+        # 中断后开始是否继续开始
+        is_interrupt_continue = Config.get_config('interruptContinue')
+        if is_interrupt_continue == False:
+            DB('temp', 'complete').remove_db()
+
+    def run(self,main):
+        # 先设置一下全局项目名称
+        g_set('main',main)
+        # 清除db
+        self.__db_clean()
         # 开始时间
         start_time = time.time()
         # 执行所有用例
         get_result = self.__get_runner_result()
-
+        
         # 结束时间
         end_time = time.time()
-
+        
         # 获取用例返回的各种数据
         get_case_data = self.__get_case_return_data(get_result['method_names'], get_result['result'])
         # 生成报告
         self.__build_report(start_time,end_time,get_case_data)
 
+
+
 if __name__ == '__main__':
-    Testrunner().run()
+    run()

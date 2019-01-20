@@ -1,6 +1,6 @@
 # coding=utf-8
 import requests
-
+from tool import Tool
 class Request:
     def __header(self,token):
         # print('headers')
@@ -32,22 +32,34 @@ class Request:
         # 这里可以做个拦截 
         #
         r_data={
-            'code':0,
+            'status_code':0,
             'status':'',
-            'data':{},
+            'response':{},
             'time':0,# 时间
             'msg':'' # 错误提示
         }
 
         if r.status_code is 200:
-            r_data['data'] = r.json()
-            r_data['status'] = 'success'
+            config_res = Tool.get_yaml('project.config.response')
+            # 先判断是否有res的配置
+            if config_res != '':
+                # json['code'] == 0
+                if r.json()[config_res['status_field']] == config_res['status_success_val']:
+                    r_data['response'] = r.json()
+                    r_data['status'] = 'success'
+                else:
+                    r_data['status'] = 'error'
+                    # 可能是字段不能为空 后端会有对应的错误返回
+                    r_data['msg'] = r.json()[config_res['error_field']]
+            else:
+                r_data['response'] = r.json()
+                r_data['status'] = 'success'
         else:
             r_data['status'] = 'error'
             r_data['msg'] = r.text
 
         r_data['time'] = r.elapsed.total_seconds()
-        r_data['code'] = r.status_code
+        r_data['status_code'] = r.status_code
 
         return r_data
 

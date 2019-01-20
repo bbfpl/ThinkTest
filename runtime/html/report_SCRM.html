@@ -1,0 +1,3912 @@
+<!doctype html>
+<html>
+<head>
+    <title>SCRM接口自动化测试报告</title>
+    <meta charset="UTF-8">
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+
+    <style type="text/css" media="screen">
+        body {
+            margin: 0;
+            font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            line-height: 1.5;
+            color: #333333;
+        }
+
+        .table {
+            margin-bottom: 1px;
+            width: 100%;
+        }
+
+        .hiddenRow {
+            display: none;
+        }
+
+        .container-fluid {
+            padding-right: 120px;
+            padding-left: 120px;
+        }
+
+        .nav-tabs li {
+            width: 186px;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+      function showClassDetail(detail_id, hiddenRow_id, class_type) {
+          console.log(document.getElementById(hiddenRow_id).className)
+
+          if ('详细' ==  document.getElementById(detail_id).innerText) {
+              if ('all' == class_type) {
+                  document.getElementById(hiddenRow_id).className = 'all';
+              }
+              else if ('success' == class_type) {
+                  document.getElementById(hiddenRow_id).className = 'success';
+              }
+              else if ('error' == class_type) {
+                  document.getElementById(hiddenRow_id).className = 'error';
+              }
+              else if ('fail' == class_type) {
+                  document.getElementById(hiddenRow_id).className = 'fail';
+              }
+              else{
+                  document.getElementById(hiddenRow_id).className = 'untreaded';
+              }
+              document.getElementById(detail_id).innerText = "收起"
+          }
+          else {
+              document.getElementById(detail_id).innerText = "详细"
+              document.getElementById(hiddenRow_id).className = 'hiddenRow';
+          }
+      }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1 class="text-primary" style="font-size:45px;line-height:75px">SCRM接口自动化测试报告</h1>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-4" style="Background-Color:#F5F5F5;">
+                <h3 style="line-height:25px">测试基本信息</h3>
+                <table class="table table-hover table-bordered" style="width:100% height:11px">
+                    <tbody>
+                        <tr class="info">
+                            <td class="text-center">开始时间</td>
+                            <td class="text-center">2019-01-20 19:46:06</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center">结束时间</td>
+                            <td class="text-center">2019-01-20 19:46:09</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center">测试用时</td>
+                            <td class="text-center">11 分 4 秒</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center">总用例数</td>
+                            <td class="text-center">4</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center">跳过用例数</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-8">
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="height:300px;"></div>
+<script type="text/javascript">
+var myChart = echarts.init(document.getElementById('main'));
+var option = {
+    backgroundColor: '#F5F5F5', //背景色
+    title: {
+        text: '测试统计数据',
+        x: 'center'
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data: ['成功', '错误', '跳过']
+    },
+    color: ['#3c763d', '#FF4000', '#0099CC'],
+    calculable: true,
+    series: [{
+        name: '测试结果',
+        type: 'pie',
+        radius: '55%',
+        center: ['50%', '60%'],
+        startAngle: 135,
+        data: [{
+            value: 1,
+            name: '成功',
+            itemStyle: {
+                normal: {
+                    label: {
+                        formatter: '{b} : {c} ({d}%)',
+                        textStyle: {
+                            align: 'left',
+                            fontSize: 15,
+                        }
+                    },
+                    labelLine: {
+                        length: 40,
+                    }
+                }
+            }
+        }, {
+            value: 3,
+            name: '错误',
+            itemStyle: {
+                normal: {
+                    label: {
+                        formatter: '{b} : {c} ({d}%)',
+                        textStyle: {
+                            align: 'right',
+                            fontSize: 15,
+                        }
+                    },
+                    labelLine: {
+                        length: 40,
+                    }
+                }
+            }
+        }, {
+            value: 0,
+            name: '跳过',
+            itemStyle: {
+                normal: {
+                    label: {
+                        formatter: '{b} : {c} ({d}%)',
+                        textStyle: {
+                            align: 'right',
+                            fontSize: 15,
+                        }
+                    },
+                    labelLine: {
+                        length: 40,
+                    }
+                }
+            }
+        }],
+    }]
+};
+// 为echarts对象加载数据
+myChart.setOption(option);
+</script>
+            </div>
+        </div>
+
+        <div class="col-md-12"><span style="display: block;height: 40px;"></span></div>
+
+        <div class="col-md-12">
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+    
+    <li  class="active" >
+        <a href="#panel-1" data-toggle="tab" style="Background-Color: #428bca; color: #fff;">全部 ( 4 )</a>
+    </li>
+    
+    <li >
+        <a href="#panel-2" data-toggle="tab" style="Background-Color: #3c763d; color: #fff;">成功 ( 1 )</a>
+    </li>
+    
+    <li >
+        <a href="#panel-3" data-toggle="tab" style="Background-Color: #FF4000; color: #fff;">错误 ( 3 )</a>
+    </li>
+    
+    <li >
+        <a href="#panel-4" data-toggle="tab" style="Background-Color: #0099CC; color: #fff;">跳过 ( 0 )</a>
+    </li>
+    
+</ul>
+            </div>
+            <div class="tab-content">
+                
+
+<div class="tab-pane  active " id="panel-1">
+    <table class="table table-hover table-bordered">
+       <tr class="all">
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例编号</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例名称</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口地址</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口方法</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">时间</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">测试结果</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">详细信息</td>
+         
+       </tr>
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">登录-密码为空</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/login</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">post</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.176889</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">error</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-1-detail-1','panel-1-hidden-1', 'error')" class="detail" id = "panel-1-detail-1">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-1-hidden-1" >
+                   <td colspan='7'><div><pre class="text-left"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>System Error</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 14px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+            word-break: break-word;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3.subheading {
+            color: #4288ce;
+            margin: 6px 0 0;
+            font-weight: 400;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+        /* Layout */
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        [class^="col-md-"] {
+            float: left;
+        }
+        .clearfix {
+            clear:both;
+        }
+        @media only screen 
+        and (min-device-width : 375px) 
+        and (max-device-width : 667px) { 
+            .col-md-3,
+            .col-md-9 {
+                width: 100%;
+            }
+        }
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 48px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[8]&nbsp;<abbr title="think\exception\ErrorException">ErrorException</abbr> in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></h2>
+                </div>
+                <div><h1>未定义数组索引: password</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="3"><li class="line-3"><code>use think\Controller;
+</code></li><li class="line-4"><code>use think\Request;
+</code></li><li class="line-5"><code>class Demoapi extends Controller
+</code></li><li class="line-6"><code>{
+</code></li><li class="line-7"><code>    public function login(){
+</code></li><li class="line-8"><code>        $return_data = [];
+</code></li><li class="line-9"><code>        if(request()-&gt;isPost()){
+</code></li><li class="line-10"><code>            $post = input('post.');
+</code></li><li class="line-11"><code>            $post_name = $post['name'];
+</code></li><li class="line-12"><code>            $post_psw = $post['password'];
+</code></li><li class="line-13"><code>            if(empty($post_name)){
+</code></li><li class="line-14"><code>                return json([
+</code></li><li class="line-15"><code>                    'status'=&gt;'error',
+</code></li><li class="line-16"><code>                    'msg'=&gt;'name不能为空'
+</code></li><li class="line-17"><code>                ]);
+</code></li><li class="line-18"><code>            }
+</code></li><li class="line-19"><code>            if(empty($post_psw)){
+</code></li><li class="line-20"><code>                return json([
+</code></li><li class="line-21"><code>                    'status'=&gt;'error',
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></li>
+                                <li>
+                at <abbr title="think\Error">Error</abbr>::appError(8, '<a class="toggle" title="Undefined index: password">Undefined index: pas...</a>', '<a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php">/www/wwwroot/uihtml....</a>', 12, ['return_data' => [], 'post' => ['name' => '15000000000'], 'post_name' => '15000000000']) in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a>                </li>
+                                <li>
+                at <abbr title="app\index\controller\Demoapi">Demoapi</abbr>->login()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 343">App.php line 343</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), 'login'], []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 606">App.php line 606</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['index', 'Demoapi', 'login'], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>false</em>) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 456">App.php line 456</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::exec(['type' => 'module', 'module' => ['index', 'Demoapi', 'login'], 'convert' => <em>false</em>], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...]) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 139">App.php line 139</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php line 19">start.php line 19</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php">/www/wwwroot/uihtml....</a>') in <a class="toggle" title="/www/wwwroot/uihtml.com/public/index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>GET Data</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">POST Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>name</strong></div>
+                    <div class="col-md-9"><small>
+                        15000000000                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Files</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Cookies</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Session</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">Server/Request Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>USER</strong></div>
+                    <div class="col-md-9"><small>
+                        www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HOME</strong></div>
+                    <div class="col-md-9"><small>
+                        /home/www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_ACCEPT_ENCODING</strong></div>
+                    <div class="col-md-9"><small>
+                        identity                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_HOST</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35:39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PATH_INFO</strong></div>
+                    <div class="col-md-9"><small>
+                        //api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REDIRECT_STATUS</strong></div>
+                    <div class="col-md-9"><small>
+                        200                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        uihtml.com                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        57692                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        175.153.161.14                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_SOFTWARE</strong></div>
+                    <div class="col-md-9"><small>
+                        nginx/1.14.0                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>GATEWAY_INTERFACE</strong></div>
+                    <div class="col-md-9"><small>
+                        CGI/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_SCHEME</strong></div>
+                    <div class="col-md-9"><small>
+                        http                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PROTOCOL</strong></div>
+                    <div class="col-md-9"><small>
+                        HTTP/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_ROOT</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_METHOD</strong></div>
+                    <div class="col-md-9"><small>
+                        POST                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>QUERY_STRING</strong></div>
+                    <div class="col-md-9"><small>
+                        s=//api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_FILENAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>FCGI_ROLE</strong></div>
+                    <div class="col-md-9"><small>
+                        RESPONDER                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PHP_SELF</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME_FLOAT</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7386                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Environment Variables</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">ThinkPHP Constants</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>APP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_VERSION</strong></div>
+                    <div class="col-md-9"><small>
+                        5.0.22                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7389                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_MEM</strong></div>
+                    <div class="col-md-9"><small>
+                        409312                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DS</strong></div>
+                    <div class="col-md-9"><small>
+                        /                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LIB_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CORE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/think/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TRAIT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/traits/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ROOT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXTEND_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/extend/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>VENDOR_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/vendor/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>RUNTIME_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LOG_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/log/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CACHE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/cache/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TEMP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/temp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ENV_PREFIX</strong></div>
+                    <div class="col-md-9"><small>
+                        PHP_                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_CLI</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_WIN</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                            </div>
+                    </div>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.22</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 12;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>
+</pre></div></td>
+                </tr>
+            
+        
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">登录-get测试</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/login</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">get</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.173748</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">error</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-1-detail-2','panel-1-hidden-2', 'error')" class="detail" id = "panel-1-detail-2">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-1-hidden-2" >
+                   <td colspan='7'><div><pre class="text-left">登录是post，不能get哦</pre></div></td>
+                </tr>
+            
+        
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">登录-密码为空</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/login</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">post</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.176889</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">error</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-1-detail-3','panel-1-hidden-3', 'error')" class="detail" id = "panel-1-detail-3">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-1-hidden-3" >
+                   <td colspan='7'><div><pre class="text-left"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>System Error</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 14px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+            word-break: break-word;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3.subheading {
+            color: #4288ce;
+            margin: 6px 0 0;
+            font-weight: 400;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+        /* Layout */
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        [class^="col-md-"] {
+            float: left;
+        }
+        .clearfix {
+            clear:both;
+        }
+        @media only screen 
+        and (min-device-width : 375px) 
+        and (max-device-width : 667px) { 
+            .col-md-3,
+            .col-md-9 {
+                width: 100%;
+            }
+        }
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 48px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[8]&nbsp;<abbr title="think\exception\ErrorException">ErrorException</abbr> in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></h2>
+                </div>
+                <div><h1>未定义数组索引: password</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="3"><li class="line-3"><code>use think\Controller;
+</code></li><li class="line-4"><code>use think\Request;
+</code></li><li class="line-5"><code>class Demoapi extends Controller
+</code></li><li class="line-6"><code>{
+</code></li><li class="line-7"><code>    public function login(){
+</code></li><li class="line-8"><code>        $return_data = [];
+</code></li><li class="line-9"><code>        if(request()-&gt;isPost()){
+</code></li><li class="line-10"><code>            $post = input('post.');
+</code></li><li class="line-11"><code>            $post_name = $post['name'];
+</code></li><li class="line-12"><code>            $post_psw = $post['password'];
+</code></li><li class="line-13"><code>            if(empty($post_name)){
+</code></li><li class="line-14"><code>                return json([
+</code></li><li class="line-15"><code>                    'status'=&gt;'error',
+</code></li><li class="line-16"><code>                    'msg'=&gt;'name不能为空'
+</code></li><li class="line-17"><code>                ]);
+</code></li><li class="line-18"><code>            }
+</code></li><li class="line-19"><code>            if(empty($post_psw)){
+</code></li><li class="line-20"><code>                return json([
+</code></li><li class="line-21"><code>                    'status'=&gt;'error',
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></li>
+                                <li>
+                at <abbr title="think\Error">Error</abbr>::appError(8, '<a class="toggle" title="Undefined index: password">Undefined index: pas...</a>', '<a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php">/www/wwwroot/uihtml....</a>', 12, ['return_data' => [], 'post' => ['name' => '15000000000'], 'post_name' => '15000000000']) in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a>                </li>
+                                <li>
+                at <abbr title="app\index\controller\Demoapi">Demoapi</abbr>->login()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 343">App.php line 343</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), 'login'], []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 606">App.php line 606</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['index', 'Demoapi', 'login'], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>false</em>) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 456">App.php line 456</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::exec(['type' => 'module', 'module' => ['index', 'Demoapi', 'login'], 'convert' => <em>false</em>], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...]) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 139">App.php line 139</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php line 19">start.php line 19</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php">/www/wwwroot/uihtml....</a>') in <a class="toggle" title="/www/wwwroot/uihtml.com/public/index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>GET Data</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">POST Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>name</strong></div>
+                    <div class="col-md-9"><small>
+                        15000000000                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Files</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Cookies</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Session</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">Server/Request Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>USER</strong></div>
+                    <div class="col-md-9"><small>
+                        www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HOME</strong></div>
+                    <div class="col-md-9"><small>
+                        /home/www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_ACCEPT_ENCODING</strong></div>
+                    <div class="col-md-9"><small>
+                        identity                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_HOST</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35:39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PATH_INFO</strong></div>
+                    <div class="col-md-9"><small>
+                        //api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REDIRECT_STATUS</strong></div>
+                    <div class="col-md-9"><small>
+                        200                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        uihtml.com                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        57692                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        175.153.161.14                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_SOFTWARE</strong></div>
+                    <div class="col-md-9"><small>
+                        nginx/1.14.0                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>GATEWAY_INTERFACE</strong></div>
+                    <div class="col-md-9"><small>
+                        CGI/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_SCHEME</strong></div>
+                    <div class="col-md-9"><small>
+                        http                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PROTOCOL</strong></div>
+                    <div class="col-md-9"><small>
+                        HTTP/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_ROOT</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_METHOD</strong></div>
+                    <div class="col-md-9"><small>
+                        POST                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>QUERY_STRING</strong></div>
+                    <div class="col-md-9"><small>
+                        s=//api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_FILENAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>FCGI_ROLE</strong></div>
+                    <div class="col-md-9"><small>
+                        RESPONDER                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PHP_SELF</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME_FLOAT</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7386                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Environment Variables</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">ThinkPHP Constants</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>APP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_VERSION</strong></div>
+                    <div class="col-md-9"><small>
+                        5.0.22                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7389                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_MEM</strong></div>
+                    <div class="col-md-9"><small>
+                        409312                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DS</strong></div>
+                    <div class="col-md-9"><small>
+                        /                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LIB_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CORE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/think/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TRAIT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/traits/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ROOT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXTEND_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/extend/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>VENDOR_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/vendor/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>RUNTIME_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LOG_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/log/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CACHE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/cache/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TEMP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/temp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ENV_PREFIX</strong></div>
+                    <div class="col-md-9"><small>
+                        PHP_                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_CLI</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_WIN</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                            </div>
+                    </div>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.22</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 12;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>
+</pre></div></td>
+                </tr>
+            
+        
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">获取所有用户</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/get_users</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">get</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.128351</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">success</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-1-detail-4','panel-1-hidden-4', 'success')" class="detail" id = "panel-1-detail-4">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-1-hidden-4" >
+                   <td colspan='7'><div><pre class="text-left"></pre></div></td>
+                </tr>
+            
+        
+
+       
+    </table>
+</div>
+
+
+<div class="tab-pane " id="panel-2">
+    <table class="table table-hover table-bordered">
+       <tr class="all">
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例编号</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例名称</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口地址</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口方法</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">时间</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">测试结果</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">详细信息</td>
+         
+       </tr>
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">获取所有用户</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/get_users</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">get</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.128351</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">success</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-2-detail-1','panel-2-hidden-1', 'success')" class="detail" id = "panel-2-detail-1">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-2-hidden-1" >
+                   <td colspan='7'><div><pre class="text-left"></pre></div></td>
+                </tr>
+            
+        
+
+       
+    </table>
+</div>
+
+
+<div class="tab-pane " id="panel-3">
+    <table class="table table-hover table-bordered">
+       <tr class="all">
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例编号</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例名称</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口地址</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口方法</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">时间</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">测试结果</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">详细信息</td>
+         
+       </tr>
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">登录-密码为空</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/login</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">post</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.176889</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">error</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-3-detail-1','panel-3-hidden-1', 'error')" class="detail" id = "panel-3-detail-1">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-3-hidden-1" >
+                   <td colspan='7'><div><pre class="text-left"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>System Error</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 14px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+            word-break: break-word;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3.subheading {
+            color: #4288ce;
+            margin: 6px 0 0;
+            font-weight: 400;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+        /* Layout */
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        [class^="col-md-"] {
+            float: left;
+        }
+        .clearfix {
+            clear:both;
+        }
+        @media only screen 
+        and (min-device-width : 375px) 
+        and (max-device-width : 667px) { 
+            .col-md-3,
+            .col-md-9 {
+                width: 100%;
+            }
+        }
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 48px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[8]&nbsp;<abbr title="think\exception\ErrorException">ErrorException</abbr> in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></h2>
+                </div>
+                <div><h1>未定义数组索引: password</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="3"><li class="line-3"><code>use think\Controller;
+</code></li><li class="line-4"><code>use think\Request;
+</code></li><li class="line-5"><code>class Demoapi extends Controller
+</code></li><li class="line-6"><code>{
+</code></li><li class="line-7"><code>    public function login(){
+</code></li><li class="line-8"><code>        $return_data = [];
+</code></li><li class="line-9"><code>        if(request()-&gt;isPost()){
+</code></li><li class="line-10"><code>            $post = input('post.');
+</code></li><li class="line-11"><code>            $post_name = $post['name'];
+</code></li><li class="line-12"><code>            $post_psw = $post['password'];
+</code></li><li class="line-13"><code>            if(empty($post_name)){
+</code></li><li class="line-14"><code>                return json([
+</code></li><li class="line-15"><code>                    'status'=&gt;'error',
+</code></li><li class="line-16"><code>                    'msg'=&gt;'name不能为空'
+</code></li><li class="line-17"><code>                ]);
+</code></li><li class="line-18"><code>            }
+</code></li><li class="line-19"><code>            if(empty($post_psw)){
+</code></li><li class="line-20"><code>                return json([
+</code></li><li class="line-21"><code>                    'status'=&gt;'error',
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></li>
+                                <li>
+                at <abbr title="think\Error">Error</abbr>::appError(8, '<a class="toggle" title="Undefined index: password">Undefined index: pas...</a>', '<a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php">/www/wwwroot/uihtml....</a>', 12, ['return_data' => [], 'post' => ['name' => '15000000000'], 'post_name' => '15000000000']) in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a>                </li>
+                                <li>
+                at <abbr title="app\index\controller\Demoapi">Demoapi</abbr>->login()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 343">App.php line 343</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), 'login'], []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 606">App.php line 606</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['index', 'Demoapi', 'login'], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>false</em>) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 456">App.php line 456</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::exec(['type' => 'module', 'module' => ['index', 'Demoapi', 'login'], 'convert' => <em>false</em>], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...]) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 139">App.php line 139</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php line 19">start.php line 19</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php">/www/wwwroot/uihtml....</a>') in <a class="toggle" title="/www/wwwroot/uihtml.com/public/index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>GET Data</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">POST Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>name</strong></div>
+                    <div class="col-md-9"><small>
+                        15000000000                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Files</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Cookies</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Session</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">Server/Request Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>USER</strong></div>
+                    <div class="col-md-9"><small>
+                        www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HOME</strong></div>
+                    <div class="col-md-9"><small>
+                        /home/www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_ACCEPT_ENCODING</strong></div>
+                    <div class="col-md-9"><small>
+                        identity                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_HOST</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35:39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PATH_INFO</strong></div>
+                    <div class="col-md-9"><small>
+                        //api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REDIRECT_STATUS</strong></div>
+                    <div class="col-md-9"><small>
+                        200                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        uihtml.com                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        57692                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        175.153.161.14                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_SOFTWARE</strong></div>
+                    <div class="col-md-9"><small>
+                        nginx/1.14.0                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>GATEWAY_INTERFACE</strong></div>
+                    <div class="col-md-9"><small>
+                        CGI/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_SCHEME</strong></div>
+                    <div class="col-md-9"><small>
+                        http                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PROTOCOL</strong></div>
+                    <div class="col-md-9"><small>
+                        HTTP/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_ROOT</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_METHOD</strong></div>
+                    <div class="col-md-9"><small>
+                        POST                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>QUERY_STRING</strong></div>
+                    <div class="col-md-9"><small>
+                        s=//api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_FILENAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>FCGI_ROLE</strong></div>
+                    <div class="col-md-9"><small>
+                        RESPONDER                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PHP_SELF</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME_FLOAT</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7386                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Environment Variables</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">ThinkPHP Constants</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>APP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_VERSION</strong></div>
+                    <div class="col-md-9"><small>
+                        5.0.22                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7389                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_MEM</strong></div>
+                    <div class="col-md-9"><small>
+                        409312                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DS</strong></div>
+                    <div class="col-md-9"><small>
+                        /                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LIB_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CORE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/think/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TRAIT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/traits/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ROOT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXTEND_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/extend/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>VENDOR_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/vendor/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>RUNTIME_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LOG_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/log/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CACHE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/cache/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TEMP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/temp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ENV_PREFIX</strong></div>
+                    <div class="col-md-9"><small>
+                        PHP_                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_CLI</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_WIN</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                            </div>
+                    </div>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.22</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 12;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>
+</pre></div></td>
+                </tr>
+            
+        
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">登录-get测试</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/login</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">get</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.173748</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">error</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-3-detail-2','panel-3-hidden-2', 'error')" class="detail" id = "panel-3-detail-2">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-3-hidden-2" >
+                   <td colspan='7'><div><pre class="text-left">登录是post，不能get哦</pre></div></td>
+                </tr>
+            
+        
+
+       
+        
+       <tr class="all">
+         
+           
+            <td class="text-center">1</td>
+           
+           
+           
+            
+           
+           
+           
+         
+           
+           
+            <td class="text-center">登录-密码为空</td>
+           
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            <td class="text-center">http://139.196.192.35:39001/api/login</td>
+           
+            
+           
+           
+           
+         
+           
+           
+           
+            
+            <td class="text-center">post</td>
+           
+           
+           
+           
+         
+           
+           
+           
+            
+           
+            <td class="text-center">0.176889</td>
+           
+           
+           
+         
+           
+           
+           
+            
+           
+           
+            <td class="text-center">error</td>
+           
+           
+         
+           
+           
+           
+            
+           
+           
+           
+            <td class="text-center">
+                <a href="javascript:showClassDetail('panel-3-detail-3','panel-3-hidden-3', 'error')" class="detail" id = "panel-3-detail-3">详细</a>
+            </td>
+           
+         
+       </tr>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <tr class='hiddenRow' id="panel-3-hidden-3" >
+                   <td colspan='7'><div><pre class="text-left"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>System Error</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 14px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+            word-break: break-word;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3.subheading {
+            color: #4288ce;
+            margin: 6px 0 0;
+            font-weight: 400;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+        /* Layout */
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        [class^="col-md-"] {
+            float: left;
+        }
+        .clearfix {
+            clear:both;
+        }
+        @media only screen 
+        and (min-device-width : 375px) 
+        and (max-device-width : 667px) { 
+            .col-md-3,
+            .col-md-9 {
+                width: 100%;
+            }
+        }
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 48px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[8]&nbsp;<abbr title="think\exception\ErrorException">ErrorException</abbr> in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></h2>
+                </div>
+                <div><h1>未定义数组索引: password</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="3"><li class="line-3"><code>use think\Controller;
+</code></li><li class="line-4"><code>use think\Request;
+</code></li><li class="line-5"><code>class Demoapi extends Controller
+</code></li><li class="line-6"><code>{
+</code></li><li class="line-7"><code>    public function login(){
+</code></li><li class="line-8"><code>        $return_data = [];
+</code></li><li class="line-9"><code>        if(request()-&gt;isPost()){
+</code></li><li class="line-10"><code>            $post = input('post.');
+</code></li><li class="line-11"><code>            $post_name = $post['name'];
+</code></li><li class="line-12"><code>            $post_psw = $post['password'];
+</code></li><li class="line-13"><code>            if(empty($post_name)){
+</code></li><li class="line-14"><code>                return json([
+</code></li><li class="line-15"><code>                    'status'=&gt;'error',
+</code></li><li class="line-16"><code>                    'msg'=&gt;'name不能为空'
+</code></li><li class="line-17"><code>                ]);
+</code></li><li class="line-18"><code>            }
+</code></li><li class="line-19"><code>            if(empty($post_psw)){
+</code></li><li class="line-20"><code>                return json([
+</code></li><li class="line-21"><code>                    'status'=&gt;'error',
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a></li>
+                                <li>
+                at <abbr title="think\Error">Error</abbr>::appError(8, '<a class="toggle" title="Undefined index: password">Undefined index: pas...</a>', '<a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php">/www/wwwroot/uihtml....</a>', 12, ['return_data' => [], 'post' => ['name' => '15000000000'], 'post_name' => '15000000000']) in <a class="toggle" title="/www/wwwroot/uihtml.com/application/index/controller/Demoapi.php line 12">Demoapi.php line 12</a>                </li>
+                                <li>
+                at <abbr title="app\index\controller\Demoapi">Demoapi</abbr>->login()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 343">App.php line 343</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\index\controller\Demoapi">Demoapi</abbr>), 'login'], []) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 606">App.php line 606</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['index', 'Demoapi', 'login'], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>false</em>) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 456">App.php line 456</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::exec(['type' => 'module', 'module' => ['index', 'Demoapi', 'login'], 'convert' => <em>false</em>], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...]) in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/library/think/App.php line 139">App.php line 139</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php line 19">start.php line 19</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="/www/wwwroot/uihtml.com/thinkphp/start.php">/www/wwwroot/uihtml....</a>') in <a class="toggle" title="/www/wwwroot/uihtml.com/public/index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>GET Data</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">POST Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>name</strong></div>
+                    <div class="col-md-9"><small>
+                        15000000000                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Files</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Cookies</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Session</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">Server/Request Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>USER</strong></div>
+                    <div class="col-md-9"><small>
+                        www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HOME</strong></div>
+                    <div class="col-md-9"><small>
+                        /home/www                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_ACCEPT_ENCODING</strong></div>
+                    <div class="col-md-9"><small>
+                        identity                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_HOST</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35:39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PATH_INFO</strong></div>
+                    <div class="col-md-9"><small>
+                        //api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REDIRECT_STATUS</strong></div>
+                    <div class="col-md-9"><small>
+                        200                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        uihtml.com                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        39001                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        139.196.192.35                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        57692                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        175.153.161.14                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_SOFTWARE</strong></div>
+                    <div class="col-md-9"><small>
+                        nginx/1.14.0                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>GATEWAY_INTERFACE</strong></div>
+                    <div class="col-md-9"><small>
+                        CGI/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_SCHEME</strong></div>
+                    <div class="col-md-9"><small>
+                        http                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PROTOCOL</strong></div>
+                    <div class="col-md-9"><small>
+                        HTTP/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_ROOT</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                        16                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                        application/x-www-form-urlencoded                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_METHOD</strong></div>
+                    <div class="col-md-9"><small>
+                        POST                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>QUERY_STRING</strong></div>
+                    <div class="col-md-9"><small>
+                        s=//api/login                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_FILENAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>FCGI_ROLE</strong></div>
+                    <div class="col-md-9"><small>
+                        RESPONDER                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PHP_SELF</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME_FLOAT</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7386                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Environment Variables</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">ThinkPHP Constants</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>APP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_VERSION</strong></div>
+                    <div class="col-md-9"><small>
+                        5.0.22                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1547984769.7389                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_MEM</strong></div>
+                    <div class="col-md-9"><small>
+                        409312                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DS</strong></div>
+                    <div class="col-md-9"><small>
+                        /                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LIB_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CORE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/think/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TRAIT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/thinkphp/library/traits/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ROOT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXTEND_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/extend/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>VENDOR_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/vendor/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>RUNTIME_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LOG_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/log/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CACHE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/cache/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TEMP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/runtime/temp/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        /www/wwwroot/uihtml.com/public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ENV_PREFIX</strong></div>
+                    <div class="col-md-9"><small>
+                        PHP_                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_CLI</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_WIN</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                            </div>
+                    </div>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.22</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 12;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>
+</pre></div></td>
+                </tr>
+            
+        
+
+       
+    </table>
+</div>
+
+
+<div class="tab-pane " id="panel-4">
+    <table class="table table-hover table-bordered">
+       <tr class="all">
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例编号</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">用例名称</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口地址</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">接口方法</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">时间</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">测试结果</td>
+         
+         <td class="text-center" style="Background-Color:#dff0d8">详细信息</td>
+         
+       </tr>
+
+       
+    </table>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

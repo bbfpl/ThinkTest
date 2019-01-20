@@ -1,11 +1,12 @@
 # coding=utf-8
 import os
 import configparser
+from globals import base_dir
 
 # read config class
 class Config:
     # 获取根目录
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    base_dir = base_dir()
 
     # 初始化 configparser
     @classmethod

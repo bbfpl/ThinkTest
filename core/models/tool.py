@@ -3,10 +3,10 @@ import os
 import time
 import warnings
 import yaml
-from config import Config
+from globals import g_get,base_dir
 # Tool class
 class Tool:
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    base_dir = base_dir()
 
     def get_time(self,timestamp):
         return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(timestamp))
@@ -22,7 +22,6 @@ class Tool:
     # 判断是否为空
     @staticmethod
     def is_empty(val):
-        print('isEmpty')
         if val is None or val is '' or val is 'null':
             return True
         else:
@@ -30,20 +29,24 @@ class Tool:
 
     # 获取 project 目录
     @classmethod
-    def get_project_dir(cls):
+    def get_project_dir(cls,dir=''):
         # 读取项目入口
-        project_name = Config.get_config('main')
+        if dir == '':
+            project_name = g_get('main') # Config.get_config('main')
+        else:
+            project_name = dir
+
         path = cls.base_dir + '/project/' + project_name
         return path
 
     # 获取当前项目下yaml配置文件
     @classmethod
-    def get_yaml(cls,name=''):
+    def get_yaml(cls,name='',dir=''):
         # 忽略掉yaml告警
         warnings.simplefilter("ignore", DeprecationWarning)
 
         # 每个项目下面有个config.yaml
-        config_path = cls.get_project_dir() + '/config.yaml'
+        config_path = cls.get_project_dir(dir) + '/config.yaml'
         #yaml的读取
         f = open(config_path, encoding='utf-8')
         data = yaml.load(f)
@@ -53,7 +56,7 @@ class Tool:
                 for item in name.split('.'):
                     data = data[item]
             except Exception as e:
-                data = {}
+                data = ''
         return data
 
     # 创建目录
@@ -99,10 +102,12 @@ class Tool:
             file.close()
 
     # 删除文件
-    def remove_file(self,path):
-        if os.path.exists(path):
+    def remove_file(self, path):
+        print(path)
+        if os.path.exists(path) is True:
             os.remove(path)
 
 if __name__ == '__main__':
-    print(Tool.get_yaml('project.models.sales'))
+    # print(Tool.get_yaml('project.models.sales'))
+    print(base_dir())
 

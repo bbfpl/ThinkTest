@@ -19,9 +19,14 @@ class Install:
         #判断config是否存在 不存在就创建
         if os.path.exists(config_path) is False:
             config.add_section("Config")
-            config.set("Config","project","[Demo]")
+            # 入口-当前项目
             config.set("Config","main","Demo")
-            config.set("Config","log",'False')
+            # 是否开启log
+            config.set("Config","log","False")
+            # 中断后开始是否继续开始
+            config.set("Config","interruptContinue",'False')
+            # 测试报告模板文件
+            config.set("Config","reportHtml","")
             print('创建config.ini')
             #写入配置文件
             config.write(open(config_path, "w"))

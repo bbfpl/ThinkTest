@@ -1,2 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+__pycache__
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.sln
+*.pyc
