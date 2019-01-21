@@ -1,7 +1,8 @@
 # coding=utf-8
 from tinydb import TinyDB
+from base import base_dir
 from tool import Tool
-from globals import g_get,base_dir
+from globals import g_get
 # DB Class
 class DB:
     def __init__(self,dirname='db',dbname=''):

@@ -36,13 +36,14 @@ project:
       # 登录 login_st.py
       login:
         className: TestUserLogin  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
         funName:
           # 接口方法名
           test_login:
             name: 登录  # 接口注释
-            url: /api/login
-            # 请求类型
-            mode: post
             # 参数
             data:
               name: 15000000000
@@ -50,7 +51,7 @@ project:
           # 接口方法名
           test_login_get:
             name: 登录-get测试  # 接口注释
-            url: /api/login
+            url: /api/login1
             # 请求类型
             mode: get
             # 参数

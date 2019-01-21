@@ -1,5 +1,6 @@
 from jinja2 import Template
 import os
+from base import base_dir
 from tool import Tool
 from config import Config
 
@@ -14,7 +15,7 @@ class MakeTest(Tool):
         # 获取config.yaml
         data = self.get_yaml('project.models',project_name)
         # 获取项目路径
-        self.project_path = self.base_dir + '/project/' + main + '/'
+        self.project_path = base_dir() + '/project/' + main + '/'
         # 进入处理流程
         self.__process(data)
         # print(self.project_path)

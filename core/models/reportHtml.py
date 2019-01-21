@@ -3,13 +3,17 @@ from jinja2 import Template
 # import webbrowser
 import os
 from tool import Tool
+from base import base_dir
 from globals import g_get
+from sendMail import SendMail
+from config import Config
+
 class ReporeHtml:
     def __init__(self,start_time,end_time,case_data):
         self.start_time = start_time
         self.end_time = end_time
         self.case_data = case_data
-        self.report_html_path = Tool().base_dir +'/runtime/html/report_'+g_get('main')+'.html'
+        self.report_html_path = base_dir() +'/runtime/html/report_'+g_get('main')+'.html'
         Tool().remove_file(self.report_html_path)
 
     # 根据类型获取用例的数量和用例
@@ -93,19 +97,26 @@ class ReporeHtml:
         return data
 
     def build(self):
+        get_data = self.get_output_field_data()
         # 获取template路径
         code_path = os.path.dirname(__file__) + '/reportTpl/template.html'
         # 基础模板文件
         template_html = Tool().open_file(code_path)
-        html = Template(template_html).render(self.get_output_field_data())
+        html = Template(template_html).render(get_data)
         # 写入内容
         Tool().write_file(self.report_html_path, html)
-
+        # 发送邮件
+        if Config.get_config('reportSendMail') == 'True':
+            SendMail().run({
+                "all_case_sum":get_data['all_case_sum'],
+                "success_case_sum": get_data['success_case_sum'],
+                "errors_case_sum": get_data['errors_case_sum'],
+                "skipped_case_sum": get_data['skipped_case_sum'],
+                "report_path": 'http://' + Config.get_config('serverIp') +':'+ Config.get_config('serverPort') + '/report_' + g_get('main')+'.html'
+            })
 
 if __name__ == '__main__':
     demo = [{'status_type': 'success', 'name': '登录', 'url': 'http://139.196.192.35:39001/api/login', 'mode': 'post', 'submit_data': {'name': 15000000000, 'password': 123}, 'code': 200, 'status': 'success', 'data': {'status': 'success', 'msg': '登录成功，一般成功后不会有msg提示', 'data': 'token:123456'}, 'time': 0.108004, 'msg': ''}, {'status_type': 'error', 'name': '登录', 'url': 'http://139.196.192.35:39001/api/reg', 'mode': 'post', 'submit_data': {'name': 15000000000, 'password': 123}, 'code': 404, 'status': 'error', 'data': {}, 'time': 0.166182, 'msg': ''}, {'status_type': 'success', 'name': '获取所有用户', 'url': 'http://139.196.192.35:39001/api/get_users', 'mode': 'get', 'submit_data': {}, 'code': 200, 'status': 'success', 'data': {'status': 'success', 'data': ['1111', '2222', '3333', '4444', '5555']}, 'time': 0.195988, 'msg': ''}, {'status_type': 'success', 'name': '获取所有用户', 'url': 'http://139.196.192.35:39001/api/get_users', 'mode': 'get', 'submit_data': {}, 'code': 200, 'status': 'success', 'data': {'status': 'success', 'data': ['1111', '2222', '3333', '4444', '5555']}, 'time': 0.195988, 'msg': ''}]
-
-
 
     ReporeHtml(0,0,demo).build()
     # 使用浏览器打开html

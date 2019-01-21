@@ -1,13 +1,10 @@
 # coding=utf-8
-import os
-import time
-import warnings
-import yaml
-from globals import g_get,base_dir
+import os,time,warnings,yaml,socket
+from base import base_dir
+from globals import g_get
+
 # Tool class
 class Tool:
-    base_dir = base_dir()
-
     def get_time(self,timestamp):
         return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(timestamp))
 
@@ -32,11 +29,11 @@ class Tool:
     def get_project_dir(cls,dir=''):
         # 读取项目入口
         if dir == '':
-            project_name = g_get('main') # Config.get_config('main')
+            project_name = g_get('main')
         else:
             project_name = dir
 
-        path = cls.base_dir + '/project/' + project_name
+        path = base_dir() + '/project/' + project_name
         return path
 
     # 获取当前项目下yaml配置文件
@@ -106,6 +103,18 @@ class Tool:
         print(path)
         if os.path.exists(path) is True:
             os.remove(path)
+
+    # 判断远程端口是否打开
+    def net_is_used(self,port, ip='127.0.0.1'):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            s.connect((ip, port))
+            s.shutdown(2)
+            print('%s:%d 已使用' % (ip, port))
+            return True
+        except:
+            print('%s:%d 未使用' % (ip, port))
+            return False
 
 if __name__ == '__main__':
     # print(Tool.get_yaml('project.models.sales'))

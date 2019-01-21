@@ -1,12 +1,13 @@
 # coding=utf-8
 from unittest import suite,TextTestRunner
-import time,os
+import time
 from tool import Tool
 from testloader import TestLoader
 from db import DB
 from globals import g_set
 from config import Config
 from reportHtml import ReporeHtml
+
 
 #定义 Testrunner 类
 class Testrunner:
@@ -58,7 +59,7 @@ class Testrunner:
         method_names = self.__get_all_case(discover)
 
         # 中断后开始是否继续开始
-        if is_interrupt_continue is True:
+        if is_interrupt_continue == 'True':
             # 拿到方法名和结果队列比较
             discover = self.__get_case_incomplete(method_names)
         # 开始run test
@@ -123,7 +124,7 @@ class Testrunner:
         DB().remove_db()
         # 中断后开始是否继续开始
         is_interrupt_continue = Config.get_config('interruptContinue')
-        if is_interrupt_continue == False:
+        if is_interrupt_continue == 'False':
             DB('temp', 'complete').remove_db()
 
     def run(self,main):
@@ -145,6 +146,5 @@ class Testrunner:
         self.__build_report(start_time,end_time,get_case_data)
 
 
-
 if __name__ == '__main__':
-    run()
+    Testrunner().run()

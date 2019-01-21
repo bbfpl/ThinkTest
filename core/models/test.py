@@ -28,14 +28,15 @@ class Test(unittest.TestCase):
 
         # 暂时想到这种解决方法 等以后再来优化这块
         if file_name.find('.') >= 0:
-            now_data = 'project.models.' + file_name + '.funName.' + method_name
+            now_data = 'project.models.' + file_name
         else:
-            now_data = 'project.models.' +file_path + '.' + file_name + '.funName.' + method_name
+            now_data = 'project.models.' +file_path + '.' + file_name
         return {
             # 'file_name': file_name,
             'class_name': class_name, # 类名
             'method_name': method_name, # 方法名
-            'now_data': now_data    # 当前方法的yaml路径拼接
+            'now_data_model': now_data,# 当前模块路径拼接
+            'now_data_fun': now_data + '.funName.' + method_name    # 当前方法的yaml路径拼接
         }
 
     # 获取data
@@ -43,14 +44,32 @@ class Test(unittest.TestCase):
         # 获取当前用例class名 方法名 等
         get_test_info = self._getTestInfo()
         # 全局data 用例里可用
-        data = Tool.get_yaml(get_test_info['now_data'])
+        now_data_model = Tool.get_yaml(get_test_info['now_data_model'])
+        data = Tool.get_yaml(get_test_info['now_data_fun'])
+
+        # 模块公共属性 比如 url mode等
+        if 'url' in now_data_model:
+            pub_url = now_data_model['url']
+        else:
+            pub_url = None
+        if 'mode' in now_data_model:
+            pub_mode = now_data_model['mode']
+        else:
+            pub_mode = None
 
         if data != '':
-            # 给url添加域名
-            if 'url' in data.keys():
-                data['url'] = Tool.get_yaml('project.config.domain') + data['url']
             if 'data' not in data:
                 data['data'] = {}
+            # 如果test_xx接口没有url或者mode就调用全局的
+            if 'url' not in data:
+                _url = pub_url # 给url添加域名
+            else:
+                _url = data['url']  # 给url添加域名
+            data['url'] = Tool.get_yaml('project.config.domain') + _url
+
+            if 'mode' not in data:
+                data['mode'] = pub_mode
+
             return data
         else:
             return {}
@@ -63,6 +82,7 @@ class Test(unittest.TestCase):
     def setUp(self):
         # 在每个用例里可调用
         self.data = self._getData()
+        # print(self.data)
         # print("开始执行用例:1")
 
     # 每个测试函数运行完后执行
@@ -79,7 +99,7 @@ class Test(unittest.TestCase):
             })
 
             is_interrupt_continue = Config.get_config('interruptContinue')
-            if is_interrupt_continue is True:
+            if is_interrupt_continue == 'True':
                 # 保存到 结果队列
                 DB('temp','complete').inster({
                     'status': 1,
