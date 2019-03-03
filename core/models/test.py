@@ -1,7 +1,6 @@
 # coding=utf-8
-import os
-import unittest
-import warnings
+import os,unittest,warnings
+from globals import g_set,g_get
 from request import Request
 from tool import Tool
 from db import DB
@@ -76,8 +75,8 @@ class Test(unittest.TestCase):
     # 必须使用@classmethod 装饰器,所有test运行前运行一次
     @classmethod
     def setUpClass(cls):
-        print('run setUpClass\n')
-
+        # print('run setUpClass\n')
+        return
     # 每个测试函数运行前运行
     def setUp(self):
         # 在每个用例里可调用
@@ -92,19 +91,32 @@ class Test(unittest.TestCase):
         # 保存到db
         if self.result:
             get_test_info = self._getTestInfo()
-            DB().inster({
+            db_all_insters = g_get('db_all_insters')
+            db_all_insters.append({
                 'method_name': get_test_info['method_name'],
                 'data': self.data,#
                 'result': self.result #返回提交的data的json
             })
+            g_set('db_all_insters',db_all_insters)
+            # DB().inster({
+            #     'method_name': get_test_info['method_name'],
+            #     'data': self.data,#
+            #     'result': self.result #返回提交的data的json
+            # })
 
             is_interrupt_continue = Config.get_config('interruptContinue')
             if is_interrupt_continue == 'True':
                 # 保存到 结果队列
-                DB('temp','complete').inster({
+                db_complete_insters = g_get('db_complete_insters')
+                db_complete_insters.append({
                     'status': 1,
                     'method_name': get_test_info['method_name']
                 })
+                g_set('db_complete_insters', db_complete_insters)
+                # DB('temp','complete').inster({
+                #     'status': 1,
+                #     'method_name': get_test_info['method_name']
+                # })
 
     # 必须使用@classmethod装饰器,所有test运行完后运行一次
     @classmethod

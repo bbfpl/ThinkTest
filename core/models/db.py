@@ -18,19 +18,21 @@ class DB:
     def inster(self,data):
         return self.__db_init().insert(data)
 
+    def inster_all(self,data):
+        return self.__db_init().insert_multiple(data)
+
     def select(self):
        return self.__db_init().all()
-
-    # def delete(self):
-    #     self.__db_init().remove()
 
     def remove_db(self):
         Tool().remove_file(self.db_path)
 
+
+
 if __name__ == '__main__':
-    # DB()
-    # DB('temp', 'complete').inster({
+    DB()
+    # DB().inster({
     #     'status': 1,
     #     'method_name': 2
     # })
-    DB().remove_db()
+    # DB().remove_db()

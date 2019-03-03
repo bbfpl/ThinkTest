@@ -48,25 +48,6 @@ project:
             data:
               name: 15000000000
               password: 123
-          # 接口方法名
-          test_login_get:
-            name: 登录-get测试  # 接口注释
-            url: /api/login1
-            # 请求类型
-            mode: get
-            # 参数
-            data:
-              name: 15000000000
-              password: 123
-          # 接口方法名
-          test_login_nopsw:
-            name: 登录-密码为空  # 接口注释
-            url: /api/login
-            # 请求类型
-            mode: post
-            # 参数
-            data:
-              name: 15000000000
       # 获取所有用户 users_st.py
       users:
         className: TestUsers  # 接口类名
@@ -90,3 +71,1006 @@ project:
             # 参数
             data:
               id: 1
+
+      # 登录 login_st.py
+      login1:
+        className: TestUserLogin1  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 15000000000
+              password: 123
+      # 获取所有用户 users_st.py
+      users1:
+        className: TestUsers1  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user1:
+        className: TestUser1  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login2:
+        className: TestUserLogin2  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 25000000000
+              password: 223
+      # 获取所有用户 users_st.py
+      users2:
+        className: TestUsers2  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user2:
+        className: TestUser2  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login3:
+        className: TestUserLogin3  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 35000000000
+              password: 333
+      # 获取所有用户 users_st.py
+      users3:
+        className: TestUsers3  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user3:
+        className: TestUser3  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login4:
+        className: TestUserLogin4  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 45000000000
+              password: 444
+      # 获取所有用户 users_st.py
+      users4:
+        className: TestUsers4  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user4:
+        className: TestUser4  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login5:
+        className: TestUserLogin5  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 55000000000
+              password: 555
+      # 获取所有用户 users_st.py
+      users5:
+        className: TestUsers5  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user5:
+        className: TestUser5  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login6:
+        className: TestUserLogin6  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 66000000000
+              password: 666
+      # 获取所有用户 users_st.py
+      users6:
+        className: TestUsers6  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user6:
+        className: TestUser6  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login7:
+        className: TestUserLogin7  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 77000000000
+              password: 777
+      # 获取所有用户 users_st.py
+      users7:
+        className: TestUsers7  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user7:
+        className: TestUser7  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login8:
+        className: TestUserLogin8  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 88000000000
+              password: 888
+      # 获取所有用户 users_st.py
+      users8:
+        className: TestUsers8  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user8:
+        className: TestUser8  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+    #user1模块
+    user1:
+      # 登录 login_st.py
+      login:
+        className: TestUserLogin  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 15000000000
+              password: 123
+      # 获取所有用户 users_st.py
+      users:
+        className: TestUsers  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user:
+        className: TestUser  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+
+      # 登录 login_st.py
+      login1:
+        className: TestUserLogin1  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 15000000000
+              password: 123
+      # 获取所有用户 users_st.py
+      users1:
+        className: TestUsers1  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user1:
+        className: TestUser1  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login2:
+        className: TestUserLogin2  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 25000000000
+              password: 223
+      # 获取所有用户 users_st.py
+      users2:
+        className: TestUsers2  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user2:
+        className: TestUser2  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login3:
+        className: TestUserLogin3  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 35000000000
+              password: 333
+      # 获取所有用户 users_st.py
+      users3:
+        className: TestUsers3  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user3:
+        className: TestUser3  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login4:
+        className: TestUserLogin4  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 45000000000
+              password: 444
+      # 获取所有用户 users_st.py
+      users4:
+        className: TestUsers4  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user4:
+        className: TestUser4  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login5:
+        className: TestUserLogin5  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 55000000000
+              password: 555
+      # 获取所有用户 users_st.py
+      users5:
+        className: TestUsers5  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user5:
+        className: TestUser5  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login6:
+        className: TestUserLogin6  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 66000000000
+              password: 666
+      # 获取所有用户 users_st.py
+      users6:
+        className: TestUsers6  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user6:
+        className: TestUser6  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login7:
+        className: TestUserLogin7  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 77000000000
+              password: 777
+      # 获取所有用户 users_st.py
+      users7:
+        className: TestUsers7  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user7:
+        className: TestUser7  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login8:
+        className: TestUserLogin8  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 88000000000
+              password: 888
+      # 获取所有用户 users_st.py
+      users8:
+        className: TestUsers8  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user8:
+        className: TestUser8  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+
+    #user2模块
+    user2:
+      # 登录 login_st.py
+      login:
+        className: TestUserLogin  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 15000000000
+              password: 123
+      # 获取所有用户 users_st.py
+      users:
+        className: TestUsers  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user:
+        className: TestUser  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+
+      # 登录 login_st.py
+      login1:
+        className: TestUserLogin1  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 15000000000
+              password: 123
+      # 获取所有用户 users_st.py
+      users1:
+        className: TestUsers1  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user1:
+        className: TestUser1  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login2:
+        className: TestUserLogin2  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 25000000000
+              password: 223
+      # 获取所有用户 users_st.py
+      users2:
+        className: TestUsers2  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user2:
+        className: TestUser2  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login3:
+        className: TestUserLogin3  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 35000000000
+              password: 333
+      # 获取所有用户 users_st.py
+      users3:
+        className: TestUsers3  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user3:
+        className: TestUser3  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login4:
+        className: TestUserLogin4  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 45000000000
+              password: 444
+      # 获取所有用户 users_st.py
+      users4:
+        className: TestUsers4  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user4:
+        className: TestUser4  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login5:
+        className: TestUserLogin5  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 55000000000
+              password: 555
+      # 获取所有用户 users_st.py
+      users5:
+        className: TestUsers5  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user5:
+        className: TestUser5  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login6:
+        className: TestUserLogin6  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 66000000000
+              password: 666
+      # 获取所有用户 users_st.py
+      users6:
+        className: TestUsers6  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user6:
+        className: TestUser6  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login7:
+        className: TestUserLogin7  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 77000000000
+              password: 777
+      # 获取所有用户 users_st.py
+      users7:
+        className: TestUsers7  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user7:
+        className: TestUser7  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+      # 登录 login_st.py
+      login8:
+        className: TestUserLogin8  # 接口类名
+        # 全局url
+        url: /api/login
+        # 全局请求类型
+        mode: post
+        funName:
+          # 接口方法名
+          test_login:
+            name: 登录  # 接口注释
+            # 参数
+            data:
+              name: 88000000000
+              password: 888
+      # 获取所有用户 users_st.py
+      users8:
+        className: TestUsers8  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_users:
+            name: 获取所有用户  # 接口注释
+            url: /api/get_users
+            # 请求类型
+            mode: get
+      # 获取用户 user_st.py
+      user8:
+        className: TestUser8  # 接口类名
+        funName:
+          # 接口方法名
+          test_get_user:
+            name: 获取用户  # 接口注释
+            url: /api/get_user
+            # 请求类型
+            mode: get
+            # 参数
+            data:
+              id: 1
+
+
+
+
+
+
+
