@@ -12,7 +12,7 @@ Jinja2==2.10
 MarkupSafe==1.1.0
 objectpath==0.6.1
 pytz==2018.7
-PyYAML==3.13
+PyYAML==5.4
 records==0.5.2
 requests==2.20.1
 selenium==3.141.0
